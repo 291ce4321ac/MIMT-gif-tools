@@ -124,7 +124,7 @@ if ~indexed
 end
 
 if coalesce == 1
-    system(sprintf('convert %s -layers coalesce /dev/shm/gifreadcoalescetemp.gif',filepath));
+    system(sprintf('convert "%s" -layers coalesce /dev/shm/gifreadcoalescetemp.gif',filepath));
     filepath = '/dev/shm/gifreadcoalescetemp.gif';
 end
 
@@ -176,7 +176,7 @@ else
 	% use ispc()/isunix()/ismac() or computer() to determine os
 	% /dev/shm will only be a convenient option if isunix()
 	% though idk if that's reliably true
-    system(sprintf('convert %s /dev/shm/%%03d_gifreadtemp.gif',filepath));
+    system(sprintf('convert "%s" /dev/shm/%%03d_gifreadtemp.gif',filepath));
 	infostruct = imfinfo(filepath);
 	
 	%dummy read to get image size
